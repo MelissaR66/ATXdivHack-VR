@@ -12,5 +12,5 @@ VR tool for exposure therapy
 1. fork and clone repo
 2. cd into project directory and `cd client`
 3. Install dependencies with `yarn` or `npm install`
-4. Start webpack dev server with `yarn start` or `npm start`
+4. `source .envrc.dev` and then start webpack dev server with `yarn start` or `npm start`
 5. Open browser and go to `localhost:8080`
