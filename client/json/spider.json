@@ -1,9 +1,9 @@
 {
-	phobiaName: "Arachnophobia",
-	options: [
-		{ fieldName: "Spider Size",
-		  type:      "range",
-		  default:   "1"
+	"phobiaName": "Arachnophobia",
+	"options": [
+		{ "fieldName": "Spider Size",
+		  "type":      "range",
+		  "default":   "1"
 		}
 	]
 }
