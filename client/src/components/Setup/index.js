@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RangeInput from './RangeInput';
+import TextInput from './TextInput';
 
 export default class Setup extends Component {
 	constructor() {
@@ -54,7 +55,7 @@ export default class Setup extends Component {
 				<form onBlur={this.handleBlur}>
 					<RangeInput name="Sound"/>
 					<RangeInput name="Light"/>
-					<h1>Environment</h1><input type="text" placeholder="Environment" ref="environment"/><br></br>
+					<TextInput name="Environment"/>
 				</form>
 			</div>
 		);
