@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import RangeInput from './RangeInput'
+import RangeInput from './RangeInput';
 
 export default class Setup extends Component {
 	constructor() {
 		super();
-		this.state = { sound: {}, light: {}, environment: {} };
+		this.state = { options: [], option: '', };
 		this.onBlur = this.handleBlur.bind(this);
-		this.onLoad = this.handleLoad.bind(this);
 	}
 	handleBlur(e) {
 		e.preventDefault();
@@ -22,15 +21,17 @@ export default class Setup extends Component {
 			console.log(response);
 		});
 	}
-	handleLoad(e) {
-		//e.preventDefault();
+	componentWillMount() {
+		var self = this;
 		fetch('/json/spider.json', {
 			method: 'GET'
 		}).then(function(response) {
-			console.log(response);
-//			return response.json();
-		}).then(function(body) {
-			console.log(body);
+			response.json().then(function(data) {
+				self.setState({
+					options: [...data.options]
+				})
+			});
+			console.log(self.state);
 		});
 	}
 /*	handleSubmit(e) {
@@ -49,12 +50,12 @@ export default class Setup extends Component {
 	}
 */	render() {
 		return (
-			<div>{this.handleLoad()}
-			<form onBlur={this.handleBlur}>
-				<RangeInput name="Sound"/>
-				<RangeInput name="Light"/>
-				<h1>Environment</h1><input type="text" placeholder="Environment" ref="environment"/><br></br>
-			</form>
+			<div>
+				<form onBlur={this.handleBlur}>
+					<RangeInput name="Sound"/>
+					<RangeInput name="Light"/>
+					<h1>Environment</h1><input type="text" placeholder="Environment" ref="environment"/><br></br>
+				</form>
 			</div>
 		);
 	}
